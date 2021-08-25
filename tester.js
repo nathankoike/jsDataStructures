@@ -2,6 +2,7 @@ const stack = require("./stack.js");
 const queue = require("./queue.js");
 const doublyLinkedList = require("./doublyLinkedList.js");
 const pQueue = require("./pQueue.js");
+const heap = require("./heap.js");
 
 console.log("\nTesting stack\n");
 
@@ -82,15 +83,37 @@ console.log("\n\n\nTesting priority queue\n");
 
 let pq = new pQueue();
 pq.enqueue(4);
-pq.enqueue(2);
-pq.enqueue(1);
-pq.enqueue(3);
-
-console.log(pq.data);
-
-console.log(pq.front());
-
-pq.dequeue();
-console.log(pq.data);
+// pq.enqueue(2);
+// pq.enqueue(1);
+// pq.enqueue(3);
+//
+// console.log(pq.data);
+//
+// console.log(pq.front());
+//
+// pq.dequeue();
+// console.log(pq.data);
 
 while (!pq.empty()) console.log(pq.dequeue());
+
+// -----------------------------------------------------------------------------
+console.log("\n\n\nTesting heap\n");
+
+let he = new heap();
+he.insert(4);
+console.log(he.front()); // 4
+he.insert(2);
+console.log(he.front()); // 2
+he.insert(1);
+console.log(he.front()); // 1
+he.insert(3);
+console.log(he.front()); // 1
+
+console.log();
+
+he.remove();
+console.log(he.front()); // 2
+
+// console.log(he.data);
+
+while (he.size > 0) console.log(he.remove());
