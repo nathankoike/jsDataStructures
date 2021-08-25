@@ -12,7 +12,7 @@ module.exports = class Stack {
   }
 
   pop() {
-    return this.data.pop();
+    if (!this.empty()) return this.data.pop();
   }
 
   empty() {
