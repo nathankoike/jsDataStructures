@@ -1,6 +1,7 @@
 const stack = require("./stack.js");
 const queue = require("./queue.js");
 const doublyLinkedList = require("./doublyLinkedList.js");
+const pQueue = require("./pQueue.js");
 
 console.log("\nTesting stack\n");
 
@@ -39,39 +40,57 @@ dll.add(2, 1);
 dll.add(3, 2);
 dll.add(5, 4);
 dll.print();
-
-console.log();
-console.log("Length:", dll.count);
-
-console.log("Value at index 3:", dll.get(3));
-dll.remove(3);
-
-console.log();
-console.log("Length:", dll.count);
-dll.print();
-
-console.log();
-console.log("Removing element at index 0");
-dll.remove();
+//
+// console.log();
+// console.log("Length:", dll.count);
+//
+// console.log("Value at index 3:", dll.get(3));
+// dll.remove(3);
+//
+// console.log();
+// console.log("Length:", dll.count);
 // dll.print();
-while (dll.count > 0) {
-  console.log("Current list state:");
-  dll.print();
-  dll.remove();
-  console.log();
-}
+//
+// console.log();
+// console.log("Removing element at index 0");
+// dll.remove();
+// // dll.print();
+// while (dll.count > 0) {
+//   console.log("Current list state:");
+//   dll.print();
+//   dll.remove();
+//   console.log();
+// }
+//
+// dll.add(0);
+// dll.add(1, 1);
+//
+// dll.print();
+//
+// console.log("\nReassigning index 0 to the value 100");
+//
+// dll.reassign(100);
+// dll.print();
+//
+// console.log("\nRemoving element from end");
+// dll.remove(1);
+//
+// dll.print();
 
-dll.add(0);
-dll.add(1, 1);
+// -----------------------------------------------------------------------------
+console.log("\n\n\nTesting priority queue\n");
 
-dll.print();
+let pq = new pQueue();
+pq.enqueue(4);
+pq.enqueue(2);
+pq.enqueue(1);
+pq.enqueue(3);
 
-console.log("\nReassigning index 0 to the value 100");
+console.log(pq.data);
 
-dll.reassign(100);
-dll.print();
+console.log(pq.front());
 
-console.log("\nRemoving element from end");
-dll.remove(1);
+pq.dequeue();
+console.log(pq.data);
 
-dll.print();
+while (!pq.empty()) console.log(pq.dequeue());
