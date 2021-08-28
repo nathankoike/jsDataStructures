@@ -3,6 +3,7 @@ const queue = require("./queue.js");
 const doublyLinkedList = require("./doublyLinkedList.js");
 const pQueue = require("./pQueue.js");
 const heap = require("./heap.js");
+const binTree = require("./binTree.js");
 
 console.log("\nTesting stack\n");
 
@@ -101,19 +102,46 @@ console.log("\n\n\nTesting heap\n");
 
 let he = new heap();
 he.insert(4);
-console.log(he.front()); // 4
-he.insert(2);
-console.log(he.front()); // 2
-he.insert(1);
-console.log(he.front()); // 1
-he.insert(3);
-console.log(he.front()); // 1
-
-console.log();
-
-he.remove();
-console.log(he.front()); // 2
+// console.log(he.front()); // 4
+// he.insert(2);
+// console.log(he.front()); // 2
+// he.insert(1);
+// console.log(he.front()); // 1
+// he.insert(3);
+// console.log(he.front()); // 1
+//
+// console.log();
+//
+// he.remove();
+// console.log(he.front()); // 2
 
 // console.log(he.data);
 
 while (he.size > 0) console.log(he.remove());
+
+// -----------------------------------------------------------------------------
+console.log("\n\n\nTesting binary tree\n");
+
+let bt = new binTree();
+bt.value = 16;
+bt.insert(8);
+bt.insert(4);
+bt.insert(2);
+bt.insert(1);
+bt.insert(0);
+bt.insert(1);
+bt.insert(32);
+bt.insert(64);
+bt.insert(128);
+bt.insert(512);
+bt.insert(100);
+
+bt.preorder(n => console.log(n.value));
+
+bt.delete(bt.search(1));
+
+console.log();
+
+bt.preorder(n => console.log(n.value));
+
+console.log("\n", bt.size());
